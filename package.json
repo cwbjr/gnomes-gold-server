@@ -1,0 +1,30 @@
+{
+  "name": "server-gnomesgold",
+  "version": "1.0.0",
+  "description": "Server for Gnome's Gold capstone project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node index.js",
+    "cypress": "cypress open",
+    "dev": "nodemon ./bin/www"
+  },
+  "keywords": [
+    "capstone",
+    "2018",
+    "gnome's",
+    "gold"
+  ],
+  "author": "Charles Ballew",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "knex": "^0.14.6",
+    "pg": "^7.4.1"
+  },
+  "devDependencies": {
+    "cypress": "^2.1.0",
+    "nodemon": "^1.17.3"
+  }
+}
