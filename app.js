@@ -26,6 +26,24 @@ function getUserFromBody(body) {
   return user;
 }
 
+// function validForm(user) {
+//   user.first_name = user.first_name.toLowerCase()
+//   return typeof user.first_name == 'string' &&
+//           user.first_name.trim() != '' &&
+//           user.email == 'string' &&
+//           user.email.trim() != '';
+// }
+
+// function  validFormMiddleware(req, res, next) {
+//   console.log(req.body);
+//   if(validForm(req.body)) {
+//     next();
+//   } else {
+//     const error = new Error('Invalid Submission');
+//     next(error);
+//   }
+// }
+
 app.get('/user', (req, res, next) => {
   queries.list()
     .then(users => {
@@ -48,7 +66,7 @@ app.post('/user', (req, res, next) => {
     .then(user => {
       res.status(201).json({ user: user });
     })
-    .catch(next);
+    .catch(err => next(err));
 });
 
 app.delete('/user/:id', (req, res, next) => {
