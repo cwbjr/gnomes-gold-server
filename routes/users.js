@@ -2,6 +2,16 @@ const express = require('express');
 const router = express.Router();
 const queries = require('../queries');
 
+function getUserFromBody(body) {
+  const { first_name, last_name, email } = body;
+  const user = {
+    first_name,
+    last_name,
+    email
+  };
+  return user;
+}
+
 router.get('/', (req, res, next) => {
   queries.list()
     .then(users => {
@@ -19,7 +29,8 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  queries.create(req.body)
+  const  user = getGamerFromBody(req.body);
+  queries.create(user)
     .then(user => {
       res.status(201).json({ user: user });
     })

@@ -22,8 +22,8 @@ exports.seed = function(knex, Promise) {
           last_name: 'truck',
           email: 'truck@gmail.com'
         }
-      ]);
-    }).then(() => {
+      ]).then(() => {
       return knex.raw('ALTER SEQUENCE user_id_seq RESTART WITH 4;');
     });
+  });
 };
