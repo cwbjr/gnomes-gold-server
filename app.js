@@ -5,16 +5,11 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const queries = require('./queries');
 
-// const users = require('./routes/users');
-// const app = express();
 // app.use(morgan('dev'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-
-// app.use('/users', users);
-// const queries = require('../queries');
 
 function getUserFromBody(body) {
   const { first_name, last_name, email } = body;
@@ -25,24 +20,6 @@ function getUserFromBody(body) {
   };
   return user;
 }
-
-// function validForm(user) {
-//   user.first_name = user.first_name.toLowerCase()
-//   return typeof user.first_name == 'string' &&
-//           user.first_name.trim() != '' &&
-//           user.email == 'string' &&
-//           user.email.trim() != '';
-// }
-
-// function  validFormMiddleware(req, res, next) {
-//   console.log(req.body);
-//   if(validForm(req.body)) {
-//     next();
-//   } else {
-//     const error = new Error('Invalid Submission');
-//     next(error);
-//   }
-// }
 
 app.get('/user', (req, res, next) => {
   queries.list()
