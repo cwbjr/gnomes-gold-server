@@ -6,16 +6,14 @@ const bodyParser = require('body-parser');
 const queries = require('./queries');
 
 // const users = require('./routes/users');
-
 // const app = express();
-
 // app.use(morgan('dev'));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 // app.use('/users', users);
-
 // const queries = require('../queries');
 
 function getUserFromBody(body) {

@@ -1,33 +1,6 @@
 const database = require('./database-connection');
-// const connect = require('./database-connection');
-
 
 module.exports = {
-  // getAll() {
-  //   return connect('user');
-  // },
-  // getOne(id) {
-  //   return connect('user')
-  //     .where('id', id)
-  //     .first();
-  // },
-  // create(user) {
-  //   return connect('user')
-  //     .insert(user, 'id')
-  //     .then(ids => {
-  //       return ids[0];
-  //     });
-  // },
-  // update(id, user) {
-  //   return connect('user')
-  //     .where('id', id)
-  //     .update(user);
-  // },
-  // delete(id) {
-  //   return connect('user')
-  //     .where('id', id)
-  //     .del();
-  // }
   list() {
     return database('user')
       .select('*');
